@@ -12,20 +12,20 @@ class mcollective::server::install($ensure) {
       ensure => directory,
       owner => 'root',
       mode => 0644;
-#    "agents":
-#      source => "puppet:///modules/mcollective/agent",
-#      ensure => directory,
-#      recurse => true,
-#      owner => 'root',
-#      mode => 0644,
-#      path => "${mcollective::params::plugin_path}/mcollective/agent/";
-#    "facts":
-#      source => "puppet:///modules/mcollective/facts",
-#      ensure => directory,
-#      recurse => true,
-#      owner => 'root',
-#      mode => 0644,
-#      path => "${mcollective::params::plugin_path}/mcollective/facts/";
+    "agents":
+      source => "puppet:///modules/mcollective/agent",
+      ensure => directory,
+      recurse => true,
+      owner => 'root',
+      mode => 0644,
+      path => "${mcollective::params::plugin_path}/mcollective/agent/";
+    "facts":
+      source => "puppet:///modules/mcollective/facts",
+      ensure => directory,
+      recurse => true,
+      owner => 'root',
+      mode => 0644,
+      path => "${mcollective::params::plugin_path}/mcollective/facts/";
   }
 
   if $operatingsystem == "Debian"
