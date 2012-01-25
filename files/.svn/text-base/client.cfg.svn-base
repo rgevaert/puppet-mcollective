@@ -1,0 +1,20 @@
+topicprefix = /topic/mcollective
+libdir = /usr/share/mcollective/plugins
+logfile = /dev/null
+loglevel = info
+identity = puptest.ugent.be
+
+# Plugins 
+securityprovider = psk
+plugin.psk = Ri7Ishie
+
+connector = stomp
+plugin.stomp.host = puptest.ugent.be
+plugin.stomp.port = 6163
+plugin.stomp.user = mcollective
+plugin.stomp.password = d1ctUniX
+
+# Facts
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml
+
