@@ -1,5 +1,5 @@
 # setup the class for the "server" element - this is required on all systems that you wish to monitor/control
-class mcollective::server ($ensure="running", $stomp_host, $stomp_password, $stomp_user, $plugin_psk)  {
+class mcollective::server ($ensure="running", $stomp_host, $stomp_password, $stomp_user, $plugin_psk, $factsource='yaml')  {
 
   class {
     'mcollective::common':;
