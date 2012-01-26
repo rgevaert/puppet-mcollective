@@ -5,12 +5,15 @@ class mcollective::params
     default    => '/usr/share/mcollective',
   }
 
+
   $plugin_path = "${sharepath}/plugins"
 
   $config_path= $operatingsystem ? {
     'Solaris' => '/etc/opt/csw/mcollective',
     default   => '/etc/mcollective',
   }
+
+  $site_plugin_path = "${config_path}/plugin.d"
 
   $package_common = $operatingsystem ? {
     'Solaris' => undef,

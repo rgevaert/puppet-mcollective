@@ -2,6 +2,7 @@
 class mcollective::server::conf {
 
   $plugin_path=$mcollective::params::plugin_path 
+  $site_plugin_path=$mcollective::params::site_plugin_path 
   file {
     "mcollective-server.cfg":
       content => template('mcollective/server.cfg.erb'),
