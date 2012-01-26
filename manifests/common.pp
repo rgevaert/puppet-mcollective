@@ -8,6 +8,10 @@ class mcollective::common {
       ensure  => directory,
       owner   => 'root',
       mode    => 0644;
+    $mcollective::params::site_plugin_path_root:
+      ensure => directory,
+      owner => 'root',
+      mode => 0644;
     $mcollective::params::site_plugin_path:
       ensure => directory,
       owner => 'root',

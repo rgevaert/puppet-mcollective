@@ -13,7 +13,8 @@ class mcollective::params
     default   => '/etc/mcollective',
   }
 
-  $site_plugin_path = "${config_path}/plugin.d"
+  $site_plugin_path_root = "${config_path}/plugin.d"
+  $site_plugin_path = "${site_plugin_path_root}/mcollective"
 
   $package_common = $operatingsystem ? {
     'Solaris' => undef,
