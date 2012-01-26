@@ -17,18 +17,12 @@ class mcollective::plugins::install {
       owner => 'root',
       mode => 0644,
       path => "${spp}/facts/";
-  }
-
-  if(defined(Class['mcollective::client']))
-  {
-    file {
-      "site_application":
-        source => "puppet:///modules/mcollective/application",
-        ensure => directory,
-        recurse => true,
-        owner => 'root',
-        mode => 0644,
-        path => "${spp}/application/";
-    }
+    "site_application":
+      source => "puppet:///modules/mcollective/application",
+      ensure => directory,
+      recurse => true,
+      owner => 'root',
+      mode => 0644,
+      path => "${spp}/application/";
   }
 }
