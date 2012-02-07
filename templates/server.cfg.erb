@@ -5,8 +5,17 @@ loglevel = info
 daemonize = 1
 
 # Plugins 
-securityprovider = psk
+securityprovider = <%= securityprovider %>
+<% case securityprovider
+   when "psk" -%>
 plugin.psk = <%= plugin_psk %>
+<% when "aes_security" -%>
+plugin.aes.client_cert_dir = <%= aes_client_cert_dir %>
+plugin.aes.send_pubkey = <%= aes_send_pubkey %>
+plugin.aes.learn_pubkeys =  <%= aes_learn_pubkeys %>
+plugin.aes.server_private = <%= aes_server_private %>
+plugin.aes.server_public = <%= aes_server_public %>
+<% end -%>
 
 connector = stomp
 plugin.stomp.host = <%= stomp_host %>

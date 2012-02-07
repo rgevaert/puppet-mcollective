@@ -5,8 +5,16 @@ loglevel = info
 identity = <%= identity %>
 
 # Plugins 
-securityprovider = psk
+securityprovider = <%= securityprovider %>
+<% case securityprovider
+   when "psk" -%>
 plugin.psk = <%= plugin_psk %>
+<% when "aes_security" -%>
+plugin.aes.send_pubkey = <%= aes_send_pubkey %>
+plugin.aes.learn_pubkeys =  <%= aes_learn_pubkeys %>
+plugin.aes.client_private = <%= aes_client_private %>
+plugin.aes.client_public = <%= aes_client_public %>
+<% end -%>
 
 connector = stomp
 plugin.stomp.host = <%= stomp_host %>
