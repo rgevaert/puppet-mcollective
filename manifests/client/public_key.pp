@@ -1,4 +1,4 @@
-define mcollective::client::private_key($source, $ensure="present")
+define mcollective::client::public_key($source, $ensure="present")
 {
   file {
     "/etc/mcollective/ssl/${name}-public.pem":
