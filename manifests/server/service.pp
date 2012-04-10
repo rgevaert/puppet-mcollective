@@ -7,5 +7,4 @@ class mcollective::server::service ($ensure) {
       hasrestart  => true,
       hasstatus   => false;
   }
-
 }

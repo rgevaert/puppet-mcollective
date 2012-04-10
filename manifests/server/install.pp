@@ -8,10 +8,10 @@ class mcollective::server::install($ensure) {
       ensure => directory,
       owner => 'root',
       mode => 0644;
-    "${mcollective::params::sharepath}/mcollective":
-      ensure => directory,
-      owner => 'root',
-      mode => 0644;
+  #  "${mcollective::params::sharepath}/mcollective":
+  #    ensure => directory,
+  #    owner => 'root',
+  #    mode => 0644;
   }
 
   if $operatingsystem == "Debian"

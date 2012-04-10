@@ -1,12 +1,15 @@
 class mcollective::params
 {
   $sharepath = $operatingsystem ? {
-    'Solaris'  => '/opt/csw/share/mcollective',
-    default    => '/usr/share/mcollective',
+    'Solaris'                       => '/opt/csw/share/mcollective',
+    /(?i:CentOS|RedHat|Scientific)/ => "/usr/libexec",
+    default                         => '/usr/share/mcollective',
   }
 
-
-  $plugin_path = "${sharepath}/plugins"
+  $plugin_path = $operatingsystem ? {
+    /(?i:CentOS|RedHat|Scientific)/ => "${sharepath}/mcollective",
+    default                         => "${sharepath}/plugins",
+  }
 
   $config_path= $operatingsystem ? {
     'Solaris' => '/etc/opt/csw/mcollective',
