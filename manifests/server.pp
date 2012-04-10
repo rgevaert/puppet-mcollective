@@ -13,8 +13,9 @@ class mcollective::server (
     $factsource           = 'yaml'
 ) inherits mcollective::params {
 
-  class {'mcollective::common':;} ~>
-    class {'mcollective::server::install':
+  include mcollective::common
+
+  class {'mcollective::server::install':
         ensure => $ensure;} ~>
     class {'mcollective::server::conf':;}
     class {'mcollective::server::service':
