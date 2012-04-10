@@ -13,9 +13,9 @@ class mcollective::client::install
   # install the package
   package {
     $mcollective::params::package_client:
-      provider => $mcollective::params::pkg_provider,
-#      require  => File['/usr/share/mcollective/bin/'],
-      ensure => present;
+      ensure => present,
+#     require  => File['/usr/share/mcollective/bin/'],
+      provider => $mcollective::params::pkg_provider;
   }
 
 }

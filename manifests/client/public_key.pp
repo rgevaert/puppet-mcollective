@@ -1,11 +1,11 @@
-define mcollective::client::public_key($source, $ensure="present")
+define mcollective::client::public_key($source, $ensure='present')
 {
   file {
     "/etc/mcollective/ssl/${name}-public.pem":
       ensure => $ensure,
       source => $source,
-      mode   => 700,
-      owner  => root,
-      group  => root;
+      mode   => '0700',
+      owner  => 'root',
+      group  => 'root';
   }
 }

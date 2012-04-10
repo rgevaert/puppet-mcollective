@@ -1,11 +1,8 @@
-class mcollective::plugins {
+class mcollective::plugins inherits mcollective::params {
 
   require mcollective::server
 
-  include mcollective::params
-  include mcollective::plugins::install
-  
-  Class['mcollective::params'] -> Class['mcollective::plugins::install']
-  Class['mcollective::plugins::install'] ~> Class['mcollective::server::service']
+  class{'mcollective::plugins::install':;} ~>
+    class{'mcollective::server::service':;}
 
 }

@@ -1,24 +1,22 @@
 #### Puppet module for MCollective ###
 class mcollective::common {
 
-  include mcollective::params
-
   file {
     $mcollective::params::config_path:
       ensure  => directory,
       owner   => 'root',
-      mode    => 0644;
+      mode    => '0644';
     $mcollective::params::site_plugin_path_root:
-      ensure => directory,
-      owner => 'root',
-      mode => 0644;
+      ensure  => directory,
+      owner   => 'root',
+      mode    => '0644';
     $mcollective::params::site_plugin_path:
-      ensure => directory,
-      owner => 'root',
-      mode => 0644;
+      ensure  => directory,
+      owner   => 'root',
+      mode    => '0644';
   }
 
-  if $operatingsystem != "Solaris"
+  if $::operatingsystem != 'Solaris'
   {
     package {
       $mcollective::params::package_common:
@@ -30,10 +28,9 @@ class mcollective::common {
     }
   }
 
-  case $securityprovider {
+  case $mcollective::client::securityprovider {
     'psk': {}
     'aes_security': {}
-    default: { fail("mcollective unsupported security provider") }
+    default: { fail('mcollective unsupported security provider') }
   }
-  
 }
