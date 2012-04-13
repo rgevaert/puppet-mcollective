@@ -1,4 +1,3 @@
-#### Puppet module for MCollective ###
 class mcollective::common {
 
   file {

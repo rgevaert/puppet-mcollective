@@ -2,15 +2,15 @@
 # required on all systems that you wish to monitor/control
 class mcollective::server (
     $stomp_host, $stomp_password, $stomp_user,
-    $ensure               = 'running',
-    $securityprovider     = 'psk',
-    $plugin_psk           = '',
-    $aes_send_pubkey      = 0,
-    $aes_learn_pubkeys    = 0,
-    $aes_client_cert_dir  = '/etc/mcollective/ssl/clients',
-    $aes_server_private   = '/etc/mcollective/ssl/server-private.pem',
-    $aes_server_public    = '/etc/mcollective/ssl/server-public.pem',
-    $factsource           = 'yaml'
+    $ensure               = $mcollective::params::ensure, ,
+    $securityprovider     = $mcollective::params::securityprovider,
+    $plugin_psk           = $mcollective::params::plugin_psk,
+    $aes_send_pubkey      = $mcollective::params::aes_send_pubkey,
+    $aes_learn_pubkeys    = $mcollective::params::aes_learn_pubkeys,
+    $aes_client_cert_dir  = $mcollective::params::aes_client_cert_dir,
+    $aes_server_private   = $mcollective::params::aes_server_private,
+    $aes_server_public    = $mcollective::params::aes_server_public,
+    $factsource           = $mcollective::params::factsource
 ) inherits mcollective::params {
 
   include mcollective::common

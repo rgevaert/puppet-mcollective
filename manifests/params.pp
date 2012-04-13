@@ -1,5 +1,27 @@
 class mcollective::params
 {
+  # Parameters that can be overriden.
+
+  # server parameters:
+  $ensure              = 'running'
+  $factsource          = 'yaml'
+  $aes_client_cert_dir = '/etc/mcollective/ssl/clients'
+  $aes_server_private  = '/etc/mcollective/ssl/server-private.pem'
+  $aes_server_public   = '/etc/mcollective/ssl/server-public.pem'
+
+  # client parameters:
+  $aes_client_private  = '/etc/mcollective/ssl/client-private.pem'
+  $aes_client_public   = '/etc/mcollective/ssl/client-public.pem'
+
+  # server and client parameters:
+  $securityprovider    = 'psk'
+  $plugin_psk          = ''
+  $aes_send_pubkey     = 0
+  $aes_learn_pubkeys   = 0
+
+
+  # Parameters that can't be overriden.
+
   $sharepath = $::operatingsystem ? {
     'Solaris'                       => '/opt/csw/share/mcollective',
     /(?i:CentOS|RedHat|Scientific)/ => '/usr/libexec',

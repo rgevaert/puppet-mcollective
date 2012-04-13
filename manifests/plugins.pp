@@ -1,4 +1,6 @@
-class mcollective::plugins inherits mcollective::params {
+class mcollective::plugins (
+  $site_plugin_path = $mcollective::params::site_plugin_path
+) inherits mcollective::params {
 
   require mcollective::server
 

@@ -1,13 +1,13 @@
 class mcollective::client (
     $stomp_host, $stomp_password, $stomp_user,
     $identity,
-    $securityprovider   = 'psk',
-    $plugin_psk          = '',
-    $aes_send_pubkey     = 0,
-    $aes_learn_pubkeys   = 0,
-    $aes_client_private  = '/etc/mcollective/ssl/client-private.pem',
-    $aes_client_public   = '/etc/mcollective/ssl/client-public.pem',
-    $factsource          = 'yaml'
+    $securityprovider    = $mcollective::params::securityprovider,
+    $plugin_psk          = $mcollective::params::plugin_psk,
+    $aes_send_pubkey     = $mcollective::params::aes_send_pubkey,
+    $aes_learn_pubkeys   = $mcollective::params::aes_learn_pubkeys,
+    $aes_client_private  = $mcollective::params::aes_client_private,
+    $aes_client_public   = $mcollective::params::aes_client_public,
+    $factsource          = $mcollective::params::factsource
   ) inherits mcollective::params
 {
 
