@@ -17,13 +17,13 @@ class mcollective::server::install($ensure) {
   if $::operatingsystem == 'Debian'
   {
     $e = $ensure ? {
-      'running' => '# Change to yes, to enable Mcollective on boot\nRUN=yes\n',
-      default   => '# Change to yes, to enable Mcollective on boot\nRUN=no\n',
+      'running' => 'yes',
+      default   => 'no',
     }
 
     file {
       '/etc/default/mcollective':
-        content => $e;
+        content => inline_template("# Managed with Puppet\nRUN=<%= e %>\n");
     }
   }
 
