@@ -2,7 +2,7 @@
 # required on all systems that you wish to monitor/control
 class mcollective::server (
     $stomp_host, $stomp_password, $stomp_user,
-    $ensure               = $mcollective::params::ensure, ,
+    $ensure               = $mcollective::params::ensure,
     $securityprovider     = $mcollective::params::securityprovider,
     $plugin_psk           = $mcollective::params::plugin_psk,
     $aes_send_pubkey      = $mcollective::params::aes_send_pubkey,
