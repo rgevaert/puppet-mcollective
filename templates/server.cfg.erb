@@ -16,11 +16,21 @@ plugin.aes.server_private = <%= @aes_server_private %>
 plugin.aes.server_public = <%= @aes_server_public %>
 <% end -%>
 
-connector = stomp
+connector = <%= @connector %>
+<% case @connector
+   when "stomp" -%>
 plugin.stomp.host = <%= @stomp_host %>
 plugin.stomp.port = <%= @stomp_port %>
 plugin.stomp.user = <%= @stomp_user %>
 plugin.stomp.password = <%= @stomp_password %>
+<% when "activemq" -%>
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = <%= @stomp_host %>
+plugin.activemq.pool.1.port = <%= @stomp_port %>
+plugin.activemq.pool.1.user = <%= @stomp_user %>
+plugin.activemq.pool.1.password = <%= @stomp_password %>
+plugin.activemq.pool.1.ssl = false
+<% end -%>
 plugin.service.hasstatus = true
 plugin.service.hasrestart = true
 

@@ -1,6 +1,7 @@
 class mcollective::client (
     $stomp_host, $stomp_password, $stomp_user,
     $identity,
+    $connector           = $mcollective::params::connector,
     $stomp_port          = $mcollective::params::stomp_port,
     $securityprovider    = $mcollective::params::securityprovider,
     $plugin_psk          = $mcollective::params::plugin_psk,

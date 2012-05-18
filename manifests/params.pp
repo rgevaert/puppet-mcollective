@@ -18,6 +18,7 @@ class mcollective::params
   $plugin_psk          = ''
   $aes_send_pubkey     = 0
   $aes_learn_pubkeys   = 0
+  $connector           = 'stomp'
 
 
   # Parameters that can't be overriden.
