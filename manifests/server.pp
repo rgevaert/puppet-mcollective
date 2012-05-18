@@ -19,7 +19,7 @@ class mcollective::server (
 
   class {'mcollective::server::install':
         ensure => $ensure;} ~>
-    class {'mcollective::server::conf':;}
+    class {'mcollective::server::conf':;} ~>
     class {'mcollective::server::service':
         ensure => $ensure;}
 }
