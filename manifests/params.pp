@@ -55,6 +55,8 @@ class mcollective::params
     default   => 'mcollective-client',
   }
 
+  $stomp_port = 6163
+
   $stomppkg = $::operatingsystem ? {
     'RedHat'  => 'rubygem-stomp.noarch',
     'CentOs'  => 'rubygem-stomp.noarch',
