@@ -40,6 +40,16 @@ plugin.yaml = /etc/mcollective/facts.yaml
 classesfile = /var/lib/puppet/state/classes.txt
 
 <% if @operatingsystem == "Solaris" -%>
-# Puppet plugin on solaris
+# Puppet plugin
 plugin.puppetd.puppetd = /opt/csw/sbin/puppetd
+<% elsif @operatingsystem == "Debian" -%>
+plugin.puppetd.puppetd = /usr/sbin/puppetd
+plugin.puppetd.lockfile = /var/lib/puppet/state/puppetdlock
+plugin.puppetd.statefile = /var/lib/puppet/state/state.yaml
+plugin.puppet.pidfile = /var/run/puppet/agent.pid
+plugin.puppetd.splaytime = 100
+plugin.puppet.summary = /var/lib/puppet/state/last_run_summary.yaml
 <% end -%>
+
+plugin.nrpe.conf_dir = /etc/nagios
+plugin.nrpe.conf_file = nrpe_ugent.cfg

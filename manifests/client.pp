@@ -19,4 +19,5 @@ class mcollective::client (
 
   class{'mcollective::client::install':;}
     ~> class{'mcollective::client::conf':;}
+    ~> class{'mcollective::client::plugins':;}
 }
