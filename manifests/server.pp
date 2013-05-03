@@ -1,7 +1,9 @@
 # setup the class for the "server" element - this is
 # required on all systems that you wish to monitor/control
 class mcollective::server (
-    $stomp_host, $stomp_password, $stomp_user,
+    $stomp_host,
+    $stomp_password,
+    $stomp_user,
     $ensure               = $mcollective::params::ensure,
     $connector            = $mcollective::params::connector,
     $stomp_port           = $mcollective::params::stomp_port,

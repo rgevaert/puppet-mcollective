@@ -6,5 +6,5 @@ define mcollective::plugin (
     $name:
       ensure => $ensure;
   }
-  
+
 }
