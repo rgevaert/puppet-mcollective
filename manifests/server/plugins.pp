@@ -14,31 +14,31 @@ class mcollective::server::plugins
 
 
   file {
-    "site_plugins/agent":
+    'site_plugins/agent':
+      ensure  => directory,
       source  => ["puppet:///modules/mcollective/${::lsbdistcodename}/agent",
                   'puppet:///modules/mcollective/default/agent'],
-      ensure  => directory,
       recurse => true,
       owner   => 'root',
-      mode    => 0644,
+      mode    => '0644',
       path    => "${mcollective::params::site_plugin_path}/agent",
       notify  => Class[mcollective::server];
-    "site_plugins/application":
+    'site_plugins/application':
+      ensure  => directory,
       source  => ["puppet:///modules/mcollective/${::lsbdistcodename}/application",
                   'puppet:///modules/mcollective/default/application'],
-      ensure  => directory,
       recurse => true,
       owner   => 'root',
-      mode    => 0644,
+      mode    => '0644',
       path    => "${mcollective::params::site_plugin_path}/application",
       notify  => Class[mcollective::server];
-    "site_plugins/facts":
+    'site_plugins/facts':
+      ensure  => directory,
       source  => ["puppet:///modules/mcollective/${::lsbdistcodename}/facts",
                   'puppet:///modules/mcollective/default/facts'],
-      ensure  => directory,
       recurse => true,
       owner   => 'root',
-      mode    => 0644,
+      mode    => '0644',
       path    => "${mcollective::params::site_plugin_path}/facts",
       notify  => Class[mcollective::server];
     }
