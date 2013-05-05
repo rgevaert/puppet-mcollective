@@ -13,6 +13,13 @@ class mcollective::client (
   ) inherits mcollective::params
 {
 
+  case $mcollective::client::securityprovider {
+    'psk': {}
+    'aes_security': {}
+    default: { fail('mcollective unsupported security provider') }
+  }
+
+
   # No solaris support yet!
 
   include mcollective::common

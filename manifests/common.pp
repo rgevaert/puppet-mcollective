@@ -26,10 +26,4 @@ class mcollective::common {
         provider => $mcollective::params::pkg_provider;
     }
   }
-
-  case $mcollective::client::securityprovider {
-    'psk': {}
-    'aes_security': {}
-    default: { fail('mcollective unsupported security provider') }
-  }
 }

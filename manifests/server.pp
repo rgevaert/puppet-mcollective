@@ -17,12 +17,20 @@ class mcollective::server (
     $factsource           = $mcollective::params::factsource
 ) inherits mcollective::params {
 
+  case $mcollective::server::securityprovider {
+    'psk': {}
+    'aes_security': {}
+    default: { fail('mcollective unsupported security provider') }
+  }
+
   include mcollective::common
 
   class {'mcollective::server::install':
-        ensure => $ensure;} ~>
+      ensure => $ensure;} ~>
     class {'mcollective::server::conf':;} ~>
-    class {'mcollective::server::plugins':;} ~>
     class {'mcollective::server::service':
         ensure => $ensure;}
+
+  class {'mcollective::server::plugins':;}
+  class {'mcollective::server::facts':;}
 }

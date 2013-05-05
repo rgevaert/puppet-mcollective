@@ -7,6 +7,7 @@ define mcollective::server::client_key(
     "${client_cert_dir}/${name}-public.pem":
       ensure => $ensure,
       source => $source,
+      notify => Class['mcollective::server'],
       mode   => '0700',
       owner  => 'root',
       group  => 'root';

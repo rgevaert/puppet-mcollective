@@ -4,7 +4,8 @@ define mcollective::plugin (
 
   package {
     $name:
-      ensure => $ensure;
+      ensure => $ensure,
+      notify => Class[mcollective::server];
   }
 
 }
